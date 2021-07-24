@@ -345,11 +345,11 @@ function img.OnDrawFrame()
 	img.SetNextWindowPos(img.ImVec2(img.GetIO().DisplaySize.x / 2, img.GetIO().DisplaySize.y / 2), img.Cond.FirstUseEver, img.ImVec2(0.5, 0.5))
 	img.SetNextWindowSize(img.ImVec2(385, 300), img.Cond.FirstUseEver)
 	img.Begin('Kill State by Eenz Hatte', kl, img.WindowFlags.NoCollapse)
-	if img.Button(u8'Сбросить статистику') then
+	if img.Button(u8'Г‘ГЎГ°Г®Г±ГЁГІГј Г±ГІГ ГІГЁГ±ГІГЁГЄГі') then
 		img.OpenPopup('statistic')
 	end
 	if img.BeginPopup('statistic', 0) then
-		if img.Button(u8'Личную') then
+		if img.Button(u8'Г‹ГЁГ·Г­ГіГѕ') then
 			tdmg = 0
 			dmgpl = 0
 			maxdmg = 0
@@ -359,15 +359,15 @@ function img.OnDrawFrame()
 			deaths = 0
 			shotcount = 0
 			hitcount = 0
-			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Личная статистика сброшена.', 0xFFFFFFFF)
+			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г‹ГЁГ·Г­Г Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ  Г±ГЎГ°Г®ГёГҐГ­Г .', 0xFFFFFFFF)
 			img.CloseCurrentPopup()
 		end
-		if img.Button(u8'Общую') then
+		if img.Button(u8'ГЋГЎГ№ГіГѕ') then
 			ks = {}
-			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Общая статистика сброшена.', 0xFFFFFFFF)
+			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}ГЋГЎГ№Г Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ  Г±ГЎГ°Г®ГёГҐГ­Г .', 0xFFFFFFFF)
 			img.CloseCurrentPopup()
 		end
-		if img.Button(u8'Всю') then
+		if img.Button(u8'Г‚Г±Гѕ') then
 			ks = {}
 			tdmg = 0
 			dmgpl = 0
@@ -378,7 +378,7 @@ function img.OnDrawFrame()
 			deaths = 0
 			shotcount = 0
 			hitcount = 0
-			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Вся статистика сброшена.', 0xFFFFFFFF)
+			sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г‚Г±Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ  Г±ГЎГ°Г®ГёГҐГ­Г .', 0xFFFFFFFF)
 			img.CloseCurrentPopup()
 		end
 		img.EndPopup()
@@ -387,20 +387,20 @@ function img.OnDrawFrame()
 	a,r,g,b = explode_argb(sampGetPlayerColor(id))
 	c1, c2, c3, c4 = argb2imvec4(a, r, g, b)
 	img.SameLine()
-	if img.Button(u8'Сортировка') then
+	if img.Button(u8'Г‘Г®Г°ГІГЁГ°Г®ГўГЄГ ') then
 		img.OpenPopup('sort')
 	end
 	if img.BeginPopup('sort', 0) then
-		if img.RadioButton(u8'По алфавиту', cfg.main.sr == 1) then
+		if img.RadioButton(u8'ГЏГ® Г Г«ГґГ ГўГЁГІГі', cfg.main.sr == 1) then
 			cfg.main.sr = 1
 		end
-		if img.RadioButton(u8'По убийствам', cfg.main.sr == 2) then
+		if img.RadioButton(u8'ГЏГ® ГіГЎГЁГ©Г±ГІГўГ Г¬', cfg.main.sr == 2) then
 			cfg.main.sr = 2
 		end
-		if img.RadioButton(u8'По смертям', cfg.main.sr == 3) then
+		if img.RadioButton(u8'ГЏГ® Г±Г¬ГҐГ°ГІГїГ¬', cfg.main.sr == 3) then
 			cfg.main.sr = 3
 		end
-		if img.RadioButton(u8'По K/D', cfg.main.sr == 4) then
+		if img.RadioButton(u8'ГЏГ® K/D', cfg.main.sr == 4) then
 			cfg.main.sr = 4
 		end
 		img.Image(icons, img.ImVec2(10,10), img.ImVec2(.87,.59), img.ImVec2(.97,.69))
@@ -413,35 +413,35 @@ function img.OnDrawFrame()
 		img.EndPopup()
 	end
 	img.SameLine()
-	if img.Button(u8'Личная статистика') then
+	if img.Button(u8'Г‹ГЁГ·Г­Г Гї Г±ГІГ ГІГЁГ±ГІГЁГЄГ ') then
 		img.OpenPopup('ownstate')
 	end
 	if img.BeginPopup('ownstate', 0) then
-		img.Text(u8'Активация')
+		img.Text(u8'ГЂГЄГІГЁГўГ Г¶ГЁГї')
 		img.SameLine()
 		if img.ToggleButton('##1', acownstate) then
 			cfg.main.acownstate = acownstate.v
 		end
 		img.SameLine()
-		if img.Button(u8'Позиция текста', img.ImVec2(116, 20)) then
+		if img.Button(u8'ГЏГ®Г§ГЁГ¶ГЁГї ГІГҐГЄГ±ГІГ ', img.ImVec2(116, 20)) then
 			kl.v = false
 			lua_thread.create(crd)
 		end
 		img.Separator()
 		img.PushItemWidth(165)
-		img.InputText(u8'Шрифт', ownstatefont)
-		if img.Button(u8'Применить шрифт', img.ImVec2(215, 20)) then
+		img.InputText(u8'ГГ°ГЁГґГІ', ownstatefont)
+		if img.Button(u8'ГЏГ°ГЁГ¬ГҐГ­ГЁГІГј ГёГ°ГЁГґГІ', img.ImVec2(215, 20)) then
 			cfg.main.ownstatefont = ownstatefont.v
 			font = renderCreateFont(ownstatefont.v, cfg.main.ownstatefontsize, cfg.main.ownstatefontflag)
 		end
 		img.PushItemWidth(123)
-		img.Text(u8'Текущий: '..cfg.main.ownstatefont)
-		if img.InputInt(u8'Размер текста', ownstatefontsize) then
+		img.Text(u8'Г’ГҐГЄГіГ№ГЁГ©: '..cfg.main.ownstatefont)
+		if img.InputInt(u8'ГђГ Г§Г¬ГҐГ° ГІГҐГЄГ±ГІГ ', ownstatefontsize) then
 			ownstatefontsize.v = LimitInputInt(0, 300, ownstatefontsize.v)
 			cfg.main.ownstatefontsize = ownstatefontsize.v
 			font = renderCreateFont(cfg.main.ownstatefont, ownstatefontsize.v, cfg.main.ownstatefontflag)
 		end
-		if img.InputInt(u8'Флаг текста', ownstatefontflag) then
+		if img.InputInt(u8'Г”Г«Г ГЈ ГІГҐГЄГ±ГІГ ', ownstatefontflag) then
 			ownstatefontflag.v = LimitInputInt(0, 300, ownstatefontflag.v)
 			cfg.main.ownstatefontflag = ownstatefontflag.v
 			font = renderCreateFont(cfg.main.ownstatefont, cfg.main.ownstatefontsize, ownstatefontflag.v)
@@ -491,19 +491,19 @@ function img.OnDrawFrame()
 			cfg.main.accuracy = accuracy.v
 		end
 		img.Separator()
-		if img.Button(u8'Цвета', img.ImVec2(105, 20)) then
+		if img.Button(u8'Г–ГўГҐГІГ ', img.ImVec2(105, 20)) then
 			img.OpenPopup('colors')
 		end
 		if img.BeginPopup('colors') then
 			img.PushItemWidth(145)
-			img.Text(u8'Цвет слов')
+			img.Text(u8'Г–ГўГҐГІ Г±Г«Г®Гў')
 			if img.ColorEdit4(u8'##oscolor', ownstatewcolor) then
 				clr = img.ImColor.FromFloat4(ownstatewcolor.v[3], ownstatewcolor.v[2], ownstatewcolor.v[1], ownstatewcolor.v[4]):GetU32()
 				cfg.main.ownstatewcolor = clr
 				wcol = bit.tohex(cfg.main.ownstatewcolor)
 			end
 			img.Separator()
-			img.Text(u8'Цвет цифр')
+			img.Text(u8'Г–ГўГҐГІ Г¶ГЁГґГ°')
 			if img.ColorEdit4(u8'##oscolor1', ownstatencolor) then
 				clr = img.ImColor.FromFloat4(ownstatencolor.v[3], ownstatencolor.v[2], ownstatencolor.v[1], ownstatencolor.v[4]):GetU32()
 				cfg.main.ownstatencolor = clr
@@ -517,7 +517,7 @@ function img.OnDrawFrame()
 			end
 			if img.IsItemHovered() then
 				img.BeginTooltip()
-				img.Text(u8'Использовать цвет слов')
+				img.Text(u8'Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г¶ГўГҐГІ Г±Г«Г®Гў')
 				img.EndTooltip()
 			end
 			img.PopItemWidth()
@@ -528,18 +528,18 @@ function img.OnDrawFrame()
 			img.OpenPopup('pluskill')
 		end
 		if img.BeginPopup('pluskill', 0) then
-			if img.Checkbox(u8'Активация', pluskill) then
+			if img.Checkbox(u8'ГЂГЄГІГЁГўГ Г¶ГЁГї', pluskill) then
 				cfg.main.pluskill = pluskill.v
 			end
 			if pluskilltype.v == 1 then
 				img.SameLine(212)
-				if img.Button(u8'Позиция текста', img.ImVec2(117, 20)) then
+				if img.Button(u8'ГЏГ®Г§ГЁГ¶ГЁГї ГІГҐГЄГ±ГІГ ', img.ImVec2(117, 20)) then
 					kl.v = false
 					lua_thread.create(crdpkill)
 				end
 			end
 			img.PushItemWidth(145)
-			if img.Combo(u8'Формат', pluskilltype, 'printStyledString\0renderFontDrawText\0') then
+			if img.Combo(u8'Г”Г®Г°Г¬Г ГІ', pluskilltype, 'printStyledString\0renderFontDrawText\0') then
 				cfg.main.pluskilltype = pluskilltype.v
 			end
 			if pluskilltype.v == 0 and pluskill.v then
@@ -547,10 +547,10 @@ function img.OnDrawFrame()
 				  printStyledString('~'..cfg.main.pluskillcolortypefvar..'~~h~+KILL', cfg.main.pkilltud*1000, 7)
 					st = os.clock()
 				end
-				if img.SliderFloat(u8'Задержка', pkilltud, 0.0, 10) then
+				if img.SliderFloat(u8'Г‡Г Г¤ГҐГ°Г¦ГЄГ ', pkilltud, 0.0, 10) then
 					cfg.main.pkilltud = pkilltud.v
 				end
-				if img.Combo(u8'Цвет', pluskillcolortypef, u8'Красный\0Зелёный\0Синий\0Белый\0Жёлтный\0Фиолетовый\0Чёрный\0') then
+				if img.Combo(u8'Г–ГўГҐГІ', pluskillcolortypef, u8'ГЉГ°Г Г±Г­Г»Г©\0Г‡ГҐГ«ВёГ­Г»Г©\0Г‘ГЁГ­ГЁГ©\0ГЃГҐГ«Г»Г©\0Г†ВёГ«ГІГ­Г»Г©\0Г”ГЁГ®Г«ГҐГІГ®ГўГ»Г©\0Г—ВёГ°Г­Г»Г©\0') then
 					cfg.main.pluskillcolortypef = pluskillcolortypef.v
 					if pluskillcolortypef.v == 0 then
 						cfg.main.pluskillcolortypefvar = 'r'
@@ -571,25 +571,25 @@ function img.OnDrawFrame()
 			else
 				if pluskill.v then pkillac = true end
 				img.SameLine()
-				if img.Button(u8'Применить шрифт', img.ImVec2(117, 20)) then
+				if img.Button(u8'ГЏГ°ГЁГ¬ГҐГ­ГЁГІГј ГёГ°ГЁГґГІ', img.ImVec2(117, 20)) then
 					cfg.main.pkillfont = pkillfont.v
 					pfont = renderCreateFont(pkillfont.v, cfg.main.pkillfontsize, cfg.main.pkillfontflag)
 				end
-				img.InputText(u8'Шрифт. Текущий:'..cfg.main.pkillfont, pkillfont)
-				if img.InputInt(u8'Размер текста', pkillfontsize) then
+				img.InputText(u8'ГГ°ГЁГґГІ. Г’ГҐГЄГіГ№ГЁГ©:'..cfg.main.pkillfont, pkillfont)
+				if img.InputInt(u8'ГђГ Г§Г¬ГҐГ° ГІГҐГЄГ±ГІГ ', pkillfontsize) then
 					pkillfontsize.v = LimitInputInt(0, 300, pkillfontsize.v)
 					cfg.main.pkillfontsize = pkillfontsize.v
 					pfont = renderCreateFont(cfg.main.pkillfont, pkillfontsize.v, cfg.main.pkillfontflag)
 				end
-				if img.InputInt(u8'Флаг текста', pkillfontflag) then
+				if img.InputInt(u8'Г”Г«Г ГЈ ГІГҐГЄГ±ГІГ ', pkillfontflag) then
 					pkillfontflag.v = LimitInputInt(0, 300, pkillfontflag.v)
 					cfg.main.pkillfontflag = pkillfontflag.v
 					pfont = renderCreateFont(cfg.main.pkillfont, cfg.main.pkillfontsize, pkillfontflag.v)
 				end
-				if img.SliderFloat(u8'Задержка растворения', pkilltud, 0.0, 10) then
+				if img.SliderFloat(u8'Г‡Г Г¤ГҐГ°Г¦ГЄГ  Г°Г Г±ГІГўГ®Г°ГҐГ­ГЁГї', pkilltud, 0.0, 10) then
 					cfg.main.pkilltud = pkilltud.v
 				end
-				if img.SliderFloat(u8'Задержка поднятия', pkilltuu, 0.0, 10) then
+				if img.SliderFloat(u8'Г‡Г Г¤ГҐГ°Г¦ГЄГ  ГЇГ®Г¤Г­ГїГІГЁГї', pkilltuu, 0.0, 10) then
 					cfg.main.pkilltuu = pkilltuu.v
 				end
 				img.SameLine()
@@ -599,16 +599,16 @@ function img.OnDrawFrame()
 				end
 				if img.IsItemHovered() then
 					img.BeginTooltip()
-					img.Text(u8'Использовать задержку растворения')
+					img.Text(u8'Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г§Г Г¤ГҐГ°Г¦ГЄГі Г°Г Г±ГІГўГ®Г°ГҐГ­ГЁГї')
 					img.EndTooltip()
 				end
-				if img.SliderFloat(u8'Интенсивность растворения', pkilldisol, 0.0, 0.03) then
+				if img.SliderFloat(u8'Г€Г­ГІГҐГ­Г±ГЁГўГ­Г®Г±ГІГј Г°Г Г±ГІГўГ®Г°ГҐГ­ГЁГї', pkilldisol, 0.0, 0.03) then
 					cfg.main.pkilldisol = pkilldisol.v
 				end
-				if img.SliderFloat(u8'Интенсивность поднятия', pkillup, 0.0, 3) then
+				if img.SliderFloat(u8'Г€Г­ГІГҐГ­Г±ГЁГўГ­Г®Г±ГІГј ГЇГ®Г¤Г­ГїГІГЁГї', pkillup, 0.0, 3) then
 					cfg.main.pkillup = pkillup.v
 				end
-				if img.ColorEdit4(u8'Цвет', pkillcolor) then
+				if img.ColorEdit4(u8'Г–ГўГҐГІ', pkillcolor) then
 					clr = img.ImColor.FromFloat4(pkillcolor.v[3], pkillcolor.v[2], pkillcolor.v[1], pkillcolor.v[4]):GetU32()
 					cfg.main.pkillcolor = clr
 				end
@@ -705,31 +705,31 @@ function img.OnDrawFrame()
 		if img.BeginPopup(ks[n].nick, 0) then
 			img.TextColored(img.ImVec4(c1, c2, c3, 1), ks[n].nick..'['..ks[n].id..']')
 			img.Separator()
-			img.Text(u8'Скопировать')
+			img.Text(u8'Г‘ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј')
 			if img.Button(u8'ID') then
 				if ks[n].id ~= 'off' then
 					img.SetClipboardText(tostring(ks[n].id))
 					img.CloseCurrentPopup()
 				else
-					sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Игрок вышел.')
+					sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г€ГЈГ°Г®ГЄ ГўГ»ГёГҐГ«.')
 				end
 			end
 			img.SameLine()
-			if img.Button(u8'Ник') then
+			if img.Button(u8'ГЌГЁГЄ') then
 				img.SetClipboardText(tostring(ks[n].nick))
 				img.CloseCurrentPopup()
 			end
 			img.SameLine()
-			if img.Button(u8'Ник[ID]') then
+			if img.Button(u8'ГЌГЁГЄ[ID]') then
 				img.SetClipboardText(tostring(ks[n].nick..'['..ks[n].id..']'))
 				img.CloseCurrentPopup()
 			end
-			if img.Button(u8'Ник[ID] и статистику') then
+			if img.Button(u8'ГЌГЁГЄ[ID] ГЁ Г±ГІГ ГІГЁГ±ГІГЁГЄГі') then
 				img.SetClipboardText(tostring(ks[n].nick..'['..ks[n].id..'] | Kills:'..ks[n].kills..' | Deaths:'..ks[n].deaths..' | KD:'..string.format("%.2f", tostring(ks[n].kd))))
 				img.CloseCurrentPopup()
 			end
 			img.Separator()
-			if img.Button(u8'История', img.ImVec2(127, 20)) then
+			if img.Button(u8'Г€Г±ГІГ®Г°ГЁГї', img.ImVec2(127, 20)) then
 				windows[ks[n].nick].ac.v = not windows[ks[n].nick].ac.v
 				math.randomseed(os.time())
 				coords.x = math.random(7, 8)
@@ -760,20 +760,20 @@ function historywindow()
           img.SetNextWindowSize(img.ImVec2(431, 300), img.Cond.FirstUseEver)
           img.Begin(nick..'['..ks[id].id..']', windows[nick].ac, img.WindowFlags.NoCollapse + img.WindowFlags.MenuBar)
           if img.BeginMenuBar() then
-            if img.BeginMenu(u8'Сортировка') then
-              img.Checkbox(u8'Показывать убийства', windows[nick].showkills)
-              img.Checkbox(u8'Показывать смерти', windows[nick].showdeaths)
+            if img.BeginMenu(u8'Г‘Г®Г°ГІГЁГ°Г®ГўГЄГ ') then
+              img.Checkbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГіГЎГЁГ©Г±ГІГўГ ', windows[nick].showkills)
+              img.Checkbox(u8'ГЏГ®ГЄГ Г§Г»ГўГ ГІГј Г±Г¬ГҐГ°ГІГЁ', windows[nick].showdeaths)
               img.EndMenu()
             end
             img.EndMenuBar()
           end
-          img.Text(u8'Убийца')
+          img.Text(u8'Г“ГЎГЁГ©Г¶Г ')
           img.SameLine()
-          img.SetCursorPosX((img.GetWindowWidth() - img.CalcTextSize(u8'Оружие').x) / 2)
-          img.Text(u8'Оружие')
+          img.SetCursorPosX((img.GetWindowWidth() - img.CalcTextSize(u8'ГЋГ°ГіГ¦ГЁГҐ').x) / 2)
+          img.Text(u8'ГЋГ°ГіГ¦ГЁГҐ')
           img.SameLine()
-          img.SetCursorPosX(img.GetWindowWidth() - img.CalcTextSize(u8'Убитый').x - 22)
-          img.Text(u8'Убитый')
+          img.SetCursorPosX(img.GetWindowWidth() - img.CalcTextSize(u8'Г“ГЎГЁГІГ»Г©').x - 22)
+          img.Text(u8'Г“ГЎГЁГІГ»Г©')
           img.Separator()
           img.PushFont(exfont)
           for n1, t1 in pairs(ks[id].history) do
@@ -1127,19 +1127,19 @@ function main()
 					os.remove(ksv)
 					--sampAddChatMessage(url.." "..version, -1)
 					if version ~= nil and version > thisScript().version then
-						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Текущая версия скрипта: '..thisScript().version..'. Требуется обновление.', color)
-						downloadUrlToFile('https://github.com/rr1me/cu/blob/main/kill_state.lua?raw=true', thisScript().path,
+						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : '..thisScript().version..'. Г’Г°ГҐГЎГіГҐГІГ±Гї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ.', color)
+						downloadUrlToFile('https://raw.githubusercontent.com/rr1me/cu/main/kill_state.lua', thisScript().path,
 						function(id, status, p1, p2)
 							if status == dls.STATUS_ENDDOWNLOADDATA then
-								sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Скрипт обновлен до версии: '..version..'.', color)
+								sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г‘ГЄГ°ГЁГЇГІ Г®ГЎГ­Г®ГўГ«ГҐГ­ Г¤Г® ГўГҐГ°Г±ГЁГЁ: '..version..'.', color)
 								thisScript():reload()
 							end
 						end)
 					elseif version ~= nil and version == thisScript().version then
-						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Текущая версия скрипта: '..thisScript().version..', обновление не требуется. Активация: "/state".', color)
+						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г’ГҐГЄГіГ№Г Гї ГўГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : '..thisScript().version..', Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г­ГҐ ГІГ°ГҐГЎГіГҐГІГ±Гї. ГЂГЄГІГЁГўГ Г¶ГЁГї: "/state".', color)
 						connect = true
 					else
-						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Не удалось проверить обновление для скрипта.', color)
+						sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}ГЌГҐ ГіГ¤Г Г«Г®Г±Гј ГЇГ°Г®ГўГҐГ°ГЁГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г¤Г«Гї Г±ГЄГ°ГЁГЇГІГ .', color)
 						connect = false
 					end
 				end
@@ -1149,12 +1149,12 @@ function main()
 	if not doesFileExist('moonloader/config/icons.png') then
 		while true do wait(0)
 			if connect == false then
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Не удалось скачать ресурсы, требуемые для работы скрипта.', color)
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Перейди по ссылке "https://raw.githubusercontent.com/rr1me/cu/main/icons.png", скачай картинку,', color)
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}закинь ее по пути moonloader/config и перезагрузи скрипт.', color)
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Выходить из игры необязательно.', color)
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Чтобы скопировать ссылку, используй команду /copylink.', color)
-				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Чтобы перезагрузить скрипт, используй команду /reloadscript.', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}ГЌГҐ ГіГ¤Г Г«Г®Г±Гј Г±ГЄГ Г·Г ГІГј Г°ГҐГ±ГіГ°Г±Г», ГІГ°ГҐГЎГіГҐГ¬Г»ГҐ Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г±ГЄГ°ГЁГЇГІГ .', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}ГЏГҐГ°ГҐГ©Г¤ГЁ ГЇГ® Г±Г±Г»Г«ГЄГҐ "https://raw.githubusercontent.com/rr1me/cu/main/icons.png", Г±ГЄГ Г·Г Г© ГЄГ Г°ГІГЁГ­ГЄГі,', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г§Г ГЄГЁГ­Гј ГҐГҐ ГЇГ® ГЇГіГІГЁ moonloader/config ГЁ ГЇГҐГ°ГҐГ§Г ГЈГ°ГіГ§ГЁ Г±ГЄГ°ГЁГЇГІ.', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г‚Г»ГµГ®Г¤ГЁГІГј ГЁГ§ ГЁГЈГ°Г» Г­ГҐГ®ГЎГїГ§Г ГІГҐГ«ГјГ­Г®.', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г—ГІГ®ГЎГ» Г±ГЄГ®ГЇГЁГ°Г®ГўГ ГІГј Г±Г±Г»Г«ГЄГі, ГЁГ±ГЇГ®Г«ГјГ§ГіГ© ГЄГ®Г¬Г Г­Г¤Гі /copylink.', color)
+				sampAddChatMessage('{A800FF}[Kill State by Eenz Hatte]{ffffff}Г—ГІГ®ГЎГ» ГЇГҐГ°ГҐГ§Г ГЈГ°ГіГ§ГЁГІГј Г±ГЄГ°ГЁГЇГІ, ГЁГ±ГЇГ®Г«ГјГ§ГіГ© ГЄГ®Г¬Г Г­Г¤Гі /reloadscript.', color)
 				sampRegisterChatCommand('copylink', function()
 					setClipboardText('https://raw.githubusercontent.com/rr1me/cu/main/icons.png')
 				end)
